@@ -1,0 +1,121 @@
+unet-small:
+  input_size: !!python/tuple [128,128]
+  in_channels: 3
+  out_channels: 1
+  encoder_layers: 4
+  dim: 64
+  weights_filename: "unet-c1-l4-d64"
+
+unet:
+  input_size: !!python/tuple [128,128]
+  in_channels: 3
+  out_channels: 1
+  encoder_layers: 5
+  dim: 64
+  weights_filename: "unet-big-c1-l5-d64"
+
+fno2d:
+  in_dim: 3
+  n_hidden: 48
+  freq_dim: 48
+  out_dim: 1
+  modes: 14
+  num_spectral_layers: 6
+  return_freq: True
+  activation: silu
+  last_activation: False
+  add_grad_channel: True
+  dropout: 0.0
+  weights_filename: "fno2d-base"
+
+fno2d-big:
+  in_dim: 3
+  n_hidden: 64
+  freq_dim: 64
+  out_dim: 1
+  modes: 16
+  num_spectral_layers: 8
+  return_freq: True
+  activation: silu
+  last_activation: False
+  add_grad_channel: True
+  dropout: 0.05
+  weights_filename: "fno2d-big"
+
+uit:
+  input_size: !!python/tuple [128,128]
+  in_channels: 3
+  out_channels: 1
+  dim: 64
+  head: 4
+  add_grad_channel: True
+  sinosoidal_pe: False
+  pe_trainable: False
+  hadamard: False
+  softmax: False
+  batch_norm: True
+  weights_filename: "uit-base-c1-d64"
+
+uit-c3:
+  input_size: !!python/tuple [128,128]
+  in_channels: 9
+  out_channels: 1
+  dim: 64
+  head: 4
+  add_grad_channel: True
+  sinosoidal_pe: False
+  pe_trainable: False
+  hadamard: False
+  softmax: False
+  batch_norm: True
+  weights_filename: "uit-c3-d64"
+
+ut:
+  input_size: !!python/tuple [128,128]
+  in_channels: 3
+  out_channels: 1
+  dim: 64
+  head: 4
+  add_grad_channel: True
+  sinosoidal_pe: False
+  pe_trainable: False
+  hadamard: False
+  softmax: True
+  batch_norm: True
+  attn_norm_type: None
+  weights_filename: "ut-st-base"
+
+
+xut:
+  input_size: !!python/tuple [128,128]
+  in_channels: 3
+  out_channels: 1
+  dim: 64
+  head: 4
+  add_grad_channel: True
+  sinosoidal_pe: True
+  pe_trainable: False
+  hadamard: True
+  softmax: True
+  batch_norm: True
+  weights_filename: "xut-base"
+
+hut:
+  input_size: !!python/tuple [128,128]
+  in_channels: 3
+  out_channels: 1
+  dim: 32
+  num_blocks: !!python/list [1,1,1]
+  num_heads: !!python/list [4,4,4]
+  block_list: '234'
+  reduce_size: 8
+  projection: 'interp'
+  attn_drop: 0.1
+  proj_drop: 0.1
+  rel_pos: True
+  aux_loss: True
+  maxpool: True
+  bias: True
+  add_grad_channel: True
+  weights_filename: "hybrid-ut"
+
