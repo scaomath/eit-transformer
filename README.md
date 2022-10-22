@@ -1,4 +1,8 @@
 # Transformer Meets Boundary Value Inverse Problems
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
+[![Pytorch 1.10](https://img.shields.io/badge/pytorch-1.10-blue.svg)](https://pytorch.org/)
+[![arXiv](https://img.shields.io/badge/arXiv-2209.14977-b31b1b.svg)](https://arxiv.org/abs/2209.14977)
 
 ## Summary
 A 2D attention operator is modified according to the integral operator formulation. The modified U-Net drop-in replacement is then used to solve an inverse problem (Electrical Impedance Tomography or EIT). The neural net is used to approximate the inclusion map using a single (or a few) current-to-voltage (Neumann-to-Dirichlet) data pairs. The boundary measurements are preprocessed using a PDE-based feature map.
@@ -20,7 +24,7 @@ python evaluation.py --model uit-c3 --channels 3 # 3 channels
 ```
 
 ## Reference
-```tex
+```bibtex
 @article{2022GuoCaoChenTransformer,
   title={Transformer Meets Boundary Value Inverse Problems},
   author={Guo, Ruchi and Cao, Shuhao and Chen, Long},
